@@ -8,6 +8,8 @@ const roomsData = {
         roomName: '東京廳', 
         thumb: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
         image: 'https://static.wixstatic.com/media/e869f9_5dab1da3280749f3bf5e70571004a94d~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
         measurements: [],
         walkMarkers: [
@@ -27,6 +29,8 @@ const roomsData = {
         roomName: '紐約廳', 
         thumb: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
         image: 'https://static.wixstatic.com/media/e869f9_001e98a2ba0e4fe6875c2cdf9fc0e2a2~mv2.jpg', 
+        defaultYaw: '45deg', // Example adjusted angle
+        defaultPitch: 0,
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg', 
         measurements: [
             {
@@ -80,6 +84,8 @@ const roomsData = {
         roomName: '米蘭廳', 
         thumb: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
         image: 'https://static.wixstatic.com/media/e869f9_c7ad28ba8c644fb99923ca7c392e6922~mv2.jpg', 
+        defaultYaw: '-45deg', // Example adjusted angle
+        defaultPitch: 0,
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
         measurements: [],
         walkMarkers: [
@@ -131,8 +137,8 @@ async function initViewer() {
             loadingImg: '', 
             touchmoveTwoFingers: true, 
             mousewheelCtrlKey: true,   
-            defaultYaw: '130deg',
-            defaultPitch: '0deg',
+            defaultYaw: room.defaultYaw || 0,
+            defaultPitch: room.defaultPitch || 0,
             plugins: [
                 [AutorotatePlugin, {
                     autostartDelay: 5000,
@@ -490,7 +496,11 @@ function switchRoom(newRoomId, isAuto = false) {
     loader.style.display = 'flex';
     loader.classList.remove('hidden');
 
-    viewer.setPanorama(room.image, { transition: 500 }).then(() => {
+    viewer.setPanorama(room.image, { 
+        transition: 500,
+        position: { yaw: room.defaultYaw || 0, pitch: room.defaultPitch || 0 },
+        showLoader: false 
+    }).then(() => {
         // Update walk markers for the new room
         if (markersPlugin) {
             markersPlugin.clearMarkers();
