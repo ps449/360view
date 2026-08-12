@@ -7,7 +7,7 @@ const roomsData = {
         title: '時尚宴會廳)',
         roomName: '東京廳', 
         thumb: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-        image: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg', 
+        image: 'https://static.wixstatic.com/media/e869f9_5dab1da3280749f3bf5e70571004a94d~mv2.jpg', 
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
         measurements: [],
         walkMarkers: [
@@ -26,7 +26,7 @@ const roomsData = {
         title: '時尚宴會廳)',
         roomName: '紐約廳', 
         thumb: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-        image: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        image: 'https://static.wixstatic.com/media/e869f9_001e98a2ba0e4fe6875c2cdf9fc0e2a2~mv2.jpg', 
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg', 
         measurements: [
             {
@@ -79,7 +79,7 @@ const roomsData = {
         title: '時尚宴會廳',
         roomName: '米蘭廳', 
         thumb: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-        image: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg', 
+        image: 'https://static.wixstatic.com/media/e869f9_c7ad28ba8c644fb99923ca7c392e6922~mv2.jpg', 
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
         measurements: [],
         walkMarkers: [
