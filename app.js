@@ -466,8 +466,6 @@ function switchRoom(newRoomId, isAuto = false) {
 
     // Update global state
     currentRoomId = newRoomId;
-    currentStyle = 'normal';
-    document.querySelector('.feature-label').textContent = '3D變裝';
 
     // Turn off ruler if active
     if (isRulerActive) {
