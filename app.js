@@ -193,7 +193,7 @@ function toggleMeasurements() {
     if (isRulerActive) {
         // Remove all measurement markers
         room.measurements.forEach(m => {
-            if (markersPlugin.getCurrentMarker(m.id)) {
+            if (markersPlugin.getMarker(m.id)) {
                 markersPlugin.removeMarker(m.id);
             }
         });
