@@ -11,7 +11,30 @@ const roomsData = {
         defaultYaw: 0,
         defaultPitch: 0,
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
-        measurements: [],
+        measurements: [
+            {
+                id: 'measure-line-1',
+                polyline: [ [1.2, 0.4], [2.5, 0.6] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px' }
+            },
+            {
+                id: 'measure-text-1',
+                position: { yaw: 1.85, pitch: 0.5 },
+                html: '<div class="measurement-marker">約 2.5 m</div>',
+                anchor: 'center center'
+            },
+            {
+                id: 'measure-line-2',
+                polyline: [ [2.5, 0.6], [3.5, 0.2] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px' }
+            },
+            {
+                id: 'measure-text-2',
+                position: { yaw: 3.0, pitch: 0.4 },
+                html: '<div class="measurement-marker">約 3.0 m</div>',
+                anchor: 'center center'
+            }
+        ],
         walkMarkers: [
             {
                 id: 'walk-to-living',
@@ -87,7 +110,19 @@ const roomsData = {
         defaultYaw: 0,
         defaultPitch: 0,
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
-        measurements: [],
+        measurements: [
+            {
+                id: 'measure-line-1',
+                polyline: [ [1.2, 0.4], [2.5, 0.6] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px' }
+            },
+            {
+                id: 'measure-text-1',
+                position: { yaw: 1.85, pitch: 0.5 },
+                html: '<div class="measurement-marker">約 2.5 m</div>',
+                anchor: 'center center'
+            }
+        ],
         walkMarkers: [
             {
                 id: 'walk-to-entrance',
