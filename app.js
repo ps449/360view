@@ -14,11 +14,11 @@ const roomsData = {
             {
                 id: 'walk-to-living',
                 position: { yaw: '150deg', pitch: '-10deg' },
-                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往客廳</div>',
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往紐約廳</div>',
                 anchor: 'bottom center',
                 size: { width: 100, height: 30 },
-                tooltip: '點擊前往 東京廳',
-                data: { targetRoom: 'hall-c' }
+                tooltip: '點擊前往 紐約廳',
+                data: { targetRoom: 'hall-b' }
             }
         ]
     },
@@ -67,10 +67,10 @@ const roomsData = {
             {
                 id: 'walk-to-living',
                 position: { yaw: '30deg', pitch: '-5deg' },
-                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 走出房間</div>',
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往米蘭廳</div>',
                 anchor: 'bottom center',
                 size: { width: 100, height: 30 },
-                tooltip: '點擊前往 紐約廳',
+                tooltip: '點擊前往 米蘭廳',
                 data: { targetRoom: 'hall-c' }
             }
         ]
@@ -86,19 +86,19 @@ const roomsData = {
             {
                 id: 'walk-to-entrance',
                 position: { yaw: '200deg', pitch: '-10deg' },
-                html: '<div class="custom-marker"><i class="fa-solid fa-door-open"></i> 前往玄關</div>',
+                html: '<div class="custom-marker"><i class="fa-solid fa-door-open"></i> 前往東京廳</div>',
                 anchor: 'bottom center',
                 size: { width: 100, height: 30 },
-                tooltip: '點擊前往  米蘭廳',
+                tooltip: '點擊前往 東京廳',
                 data: { targetRoom: 'hall-a' }
             },
             {
                 id: 'walk-to-bedroom',
                 position: { yaw: '90deg', pitch: '-5deg' },
-                html: '<div class="custom-marker"><i class="fa-solid fa-bed"></i> 前往臥室</div>',
+                html: '<div class="custom-marker"><i class="fa-solid fa-bed"></i> 前往紐約廳</div>',
                 anchor: 'bottom center',
                 size: { width: 100, height: 30 },
-                tooltip: '點擊前往 米蘭廳',
+                tooltip: '點擊前往 紐約廳',
                 data: { targetRoom: 'hall-b' }
             }
         ]
@@ -158,7 +158,12 @@ async function initViewer() {
         viewer.addEventListener('ready', () => {
             const loader = document.getElementById('loader');
             loader.classList.add('hidden');
-            setTimeout(() => { loader.style.display = 'none'; }, 1000);
+            setTimeout(() => { loader.style.display = 'none'; }, 800);
+            
+            // Set initial UI texts correctly based on the data
+            document.getElementById('header-title').textContent = room.title;
+            document.getElementById('current-room-name').textContent = room.roomName;
+            document.querySelector('.minimap-title').textContent = room.roomName;
         });
 
         viewer.addEventListener('error', (e) => {
@@ -237,13 +242,13 @@ function setupUIEvents(room) {
     btn2d.addEventListener('click', () => {
         btn2d.classList.add('active');
         btn3d.classList.remove('active');
-        minimapImg.src = 'https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&q=80';
+        minimapImg.src = 'wix:image://v1/e869f9_daf6a0b11cb14f73bb724403676f580f~mv2.jpg/IMG_3298.jpg#originWidth=4032&originHeight=3024?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&q=80';
     });
 
     btn3d.addEventListener('click', () => {
         btn3d.classList.add('active');
         btn2d.classList.remove('active');
-        minimapImg.src = 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&q=80';
+        minimapImg.src = 'wix:image://v1/e869f9_feb80d57a2b344b999699b6c4bab9c98~mv2.jpg/IMG_3298.jpg#originWidth=4032&originHeight=3024?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&q=80';
     });
 
     // 1.5 Map Enlarge Modal Logic (Refactored)
