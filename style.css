@@ -1,0 +1,748 @@
+:root {
+    --primary: #1bb756; /* Green from the screenshot */
+    --primary-hover: #159c47;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --bg-dark: #121212;
+    --panel-bg: rgba(0, 0, 0, 0.4);
+    --panel-blur: blur(10px);
+    --border-color: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--bg-dark);
+}
+
+#viewer {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* UI Overlay Layer */
+.ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Let clicks pass through to viewer by default */
+    z-index: 100;
+}
+
+/* All interactive elements inside ui-layer need pointer-events: auto */
+.ui-layer > div > *, .ui-layer > div {
+    pointer-events: auto;
+}
+
+/* 1. Top Info Bar */
+.top-info-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+}
+
+.top-info-content {
+    background: var(--panel-bg);
+    backdrop-filter: var(--panel-blur);
+    -webkit-backdrop-filter: var(--panel-blur);
+    padding: 10px 25px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid var(--border-color);
+    pointer-events: auto;
+}
+
+#header-title {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.btn-basic-info {
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-basic-info:hover {
+    background-color: var(--primary-hover);
+}
+
+/* 2. Left Minimap Panel */
+.minimap-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 250px;
+    background: var(--panel-bg);
+    backdrop-filter: var(--panel-blur);
+    -webkit-backdrop-filter: var(--panel-blur);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.minimap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px 10px;
+}
+
+.minimap-title {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.minimap-expand {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.minimap-content {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    padding: 0 15px;
+}
+
+#minimap-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.radar-cone {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(27, 183, 86, 0.5);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 10px rgba(27, 183, 86, 0.8);
+    /* In a real app, you'd rotate this based on viewer yaw */
+}
+
+.minimap-toggle {
+    display: flex;
+    padding: 10px 15px 15px;
+}
+
+.toggle-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    padding: 8px 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.toggle-btn.active {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 6px;
+}
+
+/* 3. Right Action Menu */
+.action-menu {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.action-btn {
+    background: #ffffff;
+    color: var(--primary);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    background: #f0f0f0;
+}
+
+.action-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+/* Measurement Text Marker */
+.measurement-marker {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-family: inherit;
+    white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    pointer-events: none; /* Make unclickable */
+}
+
+/* 4. Bottom Left Contact Card */
+.contact-card {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    background: transparent; /* No background for the whole card in screenshot, just floating elements */
+}
+
+.agent-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.agent-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.agent-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.agent-name {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.agent-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-contact, .btn-schedule {
+    background: var(--panel-bg);
+    backdrop-filter: var(--panel-blur);
+    -webkit-backdrop-filter: var(--panel-blur);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-contact:hover, .btn-schedule:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 5. Bottom Center Navigation */
+.bottom-nav {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-pill {
+    background: var(--panel-bg);
+    backdrop-filter: var(--panel-blur);
+    -webkit-backdrop-filter: var(--panel-blur);
+    border: 1px solid var(--primary);
+    color: var(--text-light);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s;
+}
+
+.nav-pill:hover {
+    background: rgba(0,0,0,0.6);
+}
+
+.room-switcher-container {
+    position: relative;
+}
+
+/* Gallery Popup */
+.gallery-popup {
+    position: absolute;
+    bottom: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: none; /* Hidden by default */
+    z-index: 200;
+    width: max-content;
+    max-width: 90vw;
+}
+
+.gallery-popup.active {
+    display: block;
+    animation: fadeUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tooltip triangle pointing down */
+.gallery-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(0, 0, 0, 0.6);
+}
+
+.gallery-scroll {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    /* Hide scrollbar for cleaner look */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-item {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item.active {
+    border-color: white;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    color: white;
+    text-align: center;
+    padding: 10px 5px 3px;
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+
+.share-container {
+    position: relative;
+}
+
+.share-btn {
+    background: var(--panel-bg);
+    backdrop-filter: var(--panel-blur);
+    -webkit-backdrop-filter: var(--panel-blur);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+}
+
+.share-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.share-popup {
+    position: absolute;
+    bottom: calc(100% + 15px);
+    right: 0;
+    width: 280px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    z-index: 200;
+}
+
+.share-popup.active {
+    display: flex;
+    animation: fadeUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tooltip triangle */
+.share-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 35px; /* Aligned roughly with the share button center */
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgba(0, 0, 0, 0.6);
+}
+
+.share-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.share-title {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: left;
+}
+
+#qrcode-container {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.share-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+    width: 100%;
+}
+
+.share-url {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-copy {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 8px 0;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.btn-copy:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Map Enlarge Modal (Refactored) */
+.map-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(26, 26, 30, 0.95); /* Very dark, opaque background based on screenshot */
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.map-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Header */
+.map-modal-topbar {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.btn-close-map {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.btn-close-map:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+#map-modal-title {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    flex: 1;
+    text-align: center;
+    padding-right: 40px; /* Balance the back button for true center */
+}
+
+/* Body */
+.map-modal-body {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 40px;
+    width: 100%;
+    height: 100%;
+}
+
+#large-map-img {
+    max-width: 85%;
+    max-height: 85vh;
+    object-fit: contain;
+    /* Removed border radius and shadow to match the floating look in the screenshot */
+}
+
+/* Footer */
+.map-modal-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.map-modal-toggles {
+    display: flex;
+    gap: 20px;
+}
+
+.modal-toggle-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.modal-toggle-btn:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.modal-toggle-btn.active {
+    color: white;
+    font-weight: 500;
+}
+
+.map-modal-disclaimer {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+}
+
+/* Loading Screen */
+.loader-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.8s ease-out, visibility 0.8s;
+}
+
+.loader-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(27, 183, 86, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary);
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loader-text {
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Photo Sphere Viewer Customization */
+.psv-navbar {
+    display: none !important; /* Hide default navbar since we built a custom UI */
+}
+
+/* Custom Marker */
+.custom-marker {
+    background: var(--panel-bg);
+    backdrop-filter: var(--panel-blur);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Responsive Hide */
+@media (max-width: 768px) {
+    .minimap-panel {
+        display: none; /* Hide minimap on mobile to save space */
+    }
+    
+    .action-menu {
+        top: auto;
+        bottom: 120px;
+        right: 10px;
+        transform: scale(0.8);
+        transform-origin: bottom right;
+    }
+    
+    .contact-card {
+        bottom: 90px;
+        left: 10px;
+        transform: scale(0.8);
+        transform-origin: bottom left;
+    }
+    
+    .bottom-nav {
+        bottom: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .feature-highlight {
+        display: none; /* Can be toggleable on mobile */
+    }
+}

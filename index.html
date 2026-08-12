@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 進階全景檢視</title>
+    <!-- Photo Sphere Viewer CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.7.4/index.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin@5.7.4/index.min.css" />
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./style.css">
+    
+    <!-- Import Maps for ES Modules -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "@photo-sphere-viewer/core": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.7.4/index.module.js",
+                "@photo-sphere-viewer/autorotate-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/autorotate-plugin@5.7.4/index.module.js",
+                "@photo-sphere-viewer/markers-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin@5.7.4/index.module.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Viewer Container -->
+    <div id="viewer"></div>
+
+    <!-- UI Overlay Layer -->
+    <div class="ui-layer">
+        
+        <!-- Top Info Bar -->
+        <div class="top-info-bar">
+            <div class="top-info-content">
+                <span id="header-title">時尚宴會廳</span>
+                <a href="#" class="btn-basic-info">基本資料 ></a>
+            </div>
+        </div>
+
+        <!-- Left Minimap Panel -->
+        <div class="minimap-panel">
+            <div class="minimap-header">
+                <span class="minimap-title">客廳</span>
+                <a href="#" class="minimap-expand">放大觀看 ></a>
+            </div>
+            <div class="minimap-content">
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&q=80" alt="Floor Plan" id="minimap-img" />
+                <div class="radar-cone"></div>
+            </div>
+            <div class="minimap-toggle">
+                <button class="toggle-btn active" id="btn-2d">2D空間</button>
+                <button class="toggle-btn" id="btn-3d">3D空間</button>
+            </div>
+        </div>
+
+        <!-- Right Action Menu -->
+        <div class="action-menu">
+            <button class="action-btn"><i class="fa-solid fa-play"></i> 漫遊</button>
+            <button class="action-btn"><i class="fa-solid fa-ruler-combined"></i> 量尺開啟</button>
+        </div>
+
+        <!-- Bottom Left Contact Card -->
+        <div class="contact-card">
+            <div class="agent-profile">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Agent" class="agent-avatar">
+                <div class="agent-info">
+                    <span class="agent-name">訂席人員</span>
+                    <div class="agent-actions">
+                        <button class="btn-contact"><i class="fa-solid fa-phone"></i> 聯絡業務</button>
+                        <button class="btn-schedule"><i class="fa-regular fa-calendar"></i> 預約賞廳</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Center Navigation -->
+        <div class="bottom-nav">
+            <div class="room-switcher-container">
+                <button class="nav-pill" id="btn-room-switch">
+                    <i class="fa-solid fa-location-dot"></i> <span id="current-room-name">客廳</span> <i class="fa-solid fa-right-left"></i>
+                </button>
+                
+                <!-- Room Gallery Popup (Hidden by default) -->
+                <div class="gallery-popup" id="gallery-popup">
+                    <div class="gallery-scroll" id="gallery-scroll-container">
+                        <!-- Thumbnails will be injected here by JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="share-container">
+                <button class="share-btn"><i class="fa-solid fa-share-nodes"></i> 分享</button>
+                
+                <!-- Share Popup (Hidden by default) -->
+                <div class="share-popup" id="share-popup">
+                    <div class="share-section">
+                        <div class="share-title">1. 手機掃一掃分享給好友</div>
+                        <div id="qrcode-container"></div>
+                    </div>
+                    <hr class="share-divider">
+                    <div class="share-section">
+                        <div class="share-title">2. 複製連結分享給好友</div>
+                        <div class="share-url" id="share-url-text">https://...</div>
+                        <button class="btn-copy" id="btn-copy-url">複製連結</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enlarge Map Modal -->
+        <div class="map-modal" id="map-modal">
+            <!-- Header -->
+            <div class="map-modal-topbar">
+                <button class="btn-close-map" id="btn-close-map"><i class="fa-solid fa-angle-left"></i></button>
+                <span id="map-modal-title">物件名稱</span>
+            </div>
+            
+            <!-- Body -->
+            <div class="map-modal-body">
+                <img src="" id="large-map-img" alt="Large Map View">
+            </div>
+
+            <!-- Footer -->
+            <div class="map-modal-footer">
+                <div class="map-modal-toggles">
+                    <button id="modal-btn-2d" class="modal-toggle-btn"><i class="fa-regular fa-map"></i> 2D空間</button>
+                    <button id="modal-btn-3d" class="modal-toggle-btn"><i class="fa-solid fa-cube"></i> 3D空間</button>
+                </div>
+                <div class="map-modal-disclaimer">
+                
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-container">
+        <div class="spinner"></div>
+        <div class="loader-text" id="loader-text">載入全景圖中...</div>
+    </div>
+
+    <!-- App Logic -->
+    <script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# 設定 Tufte 簡約視覺風格
+sns.set_theme(style="white")
+
+# 1. 模擬商務寬數據 (Wide Format)：產品隨時間變化的銷量
+dates = pd.date_range(start="2026-01-01", periods=12, freq="M")
+data_wide = pd.DataFrame({
+    "Month": dates,
+    "Product_A": [100, 120, 130, 110, 150, 160, 140, 170, 180, 190, 210, 220], # 穩步上升
+    "Product_B": [80, 75, 90, 110, 130, 120, 115, 140, 150, 145, 160, 175],    # 波動成長
+    "Product_C": [150, 140, 130, 120, 110, 95, 90, 85, 80, 70, 65, 50]         # 逐漸衰退
+})
+
+# 2. 關鍵轉換：pd.melt()
+# 把 Product_A, B, C 的欄位，壓縮成 "Product" 欄與 "Sales" 欄
+data_long = pd.melt(
+    data_wide, 
+    id_vars=["Month"], 
+    value_vars=["Product_A", "Product_B", "Product_C"],
+    var_name="Product", 
+    value_name="Sales"
+)
+
+# 3. 繪製小倍數圖 (Small Multiples)
+# col="Product"：代表依據 Product 種類拆分成不同子圖 (一種類別一圖)
+# col_wrap=3：代表一行最多並排 3 張圖，超過則自動折行
+g = sns.relplot(
+    data=data_long,
+    x="Month",
+    y="Sales",
+    col="Product",      # 關鍵：指定拆分子圖的分類欄位
+    kind="line",        # 繪製線條圖
+    col_wrap=3,         # 每行容納的子圖上限
+    height=3.5,         # 單一子圖高度
+    aspect=1.2,         # 單一子圖寬高比
+    linewidth=2.5,
+    color="#1f77b4"     # 使用一致的單色，避免不必要的顏色干擾
+)
+
+# 4. Tufte 視覺美化優化
+g.set_titles("{col_name}", weight="bold", size=12) # 子圖標題加粗，去除 redundant 的 "Product ="
+g.set_axis_labels("Timeline", "Monthly Sales (Units)")
+
+# 5. 去除不必要的邊框線 (Maximal Data-Ink Ratio)
+sns.despine()
+
+# 調整 X 軸時間標籤的可讀性
+for ax in g.axes.flat:
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+
+plt.tight_layout()
+plt.show()
