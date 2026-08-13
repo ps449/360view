@@ -819,15 +819,38 @@ body, html {
     color: white;
 }
 
-/* Responsive Hide */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+    .top-info-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 8px 15px;
+        gap: 5px;
+    }
+
+    .category-btn {
+        font-size: 0.85rem;
+        padding: 4px 8px;
+    }
+
+    .btn-basic-info {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+
     .minimap-panel {
-        top: 60px;
+        top: 100px;
         right: 10px;
         transform: scale(0.65);
         transform-origin: top right;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
     
+    .left-scene-menu {
+        top: 100px;
+        max-height: calc(100vh - 240px);
+    }
+
     .action-menu {
         top: auto;
         bottom: 120px;
