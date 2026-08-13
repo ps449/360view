@@ -804,7 +804,10 @@ body, html {
 /* Responsive Hide */
 @media (max-width: 768px) {
     .minimap-panel {
-        display: none; /* Hide minimap on mobile to save space */
+        top: 60px;
+        right: 10px;
+        transform: scale(0.65);
+        transform-origin: top right;
     }
     
     .action-menu {
