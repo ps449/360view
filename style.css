@@ -114,11 +114,11 @@ body, html {
     background-color: var(--primary-hover);
 }
 
-/* 2. Left Minimap Panel */
+/* 2. Right Minimap Panel */
 .minimap-panel {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 220px;
+    right: 20px;
     width: 250px;
     background: var(--panel-bg);
     backdrop-filter: var(--panel-blur);
@@ -748,13 +748,27 @@ body, html {
 .left-scene-menu {
     position: absolute;
     left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 80px;
     display: flex;
     flex-direction: column;
     gap: 15px;
     z-index: 100;
     pointer-events: auto;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Custom scrollbar for left menu */
+.left-scene-menu::-webkit-scrollbar {
+    width: 6px;
+}
+.left-scene-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+.left-scene-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
 }
 
 .left-scene-btn {
