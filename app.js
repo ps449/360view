@@ -1139,43 +1139,10 @@ function setupUIEvents(room) {
         }
     });
 
-    // Mobile Toggles Logic
-    const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
-    const mobileMapBtn = document.getElementById('mobile-map-toggle');
-    const leftSceneMenu = document.getElementById('left-scene-menu');
-    const minimapPanel = document.querySelector('.minimap-panel');
-
-    if (mobileMenuBtn && leftSceneMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            leftSceneMenu.classList.toggle('open');
-            mobileMenuBtn.classList.toggle('open');
-            // Close map if open
-            minimapPanel.classList.remove('open');
-            mobileMapBtn.classList.remove('open');
-        });
-    }
-
-    if (mobileMapBtn && minimapPanel) {
-        mobileMapBtn.addEventListener('click', () => {
-            minimapPanel.classList.toggle('open');
-            mobileMapBtn.classList.toggle('open');
-            // Close menu if open
-            leftSceneMenu.classList.remove('open');
-            mobileMenuBtn.classList.remove('open');
-        });
-    }
-}
 
 function switchRoom(newRoomId, isAuto = false) {
     if (newRoomId === currentRoomId || !viewer) return;
 
-    // Auto-close mobile menus on room switch
-    const leftSceneMenu = document.getElementById('left-scene-menu');
-    const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
-    if (leftSceneMenu && leftSceneMenu.classList.contains('open')) {
-        leftSceneMenu.classList.remove('open');
-        mobileMenuBtn.classList.remove('open');
-    }
 
     // If it's a manual switch and we are currently roaming, stop roaming
     if (!isAuto && window.isRoaming) {
