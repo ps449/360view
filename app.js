@@ -41,7 +41,7 @@ const roomsData = {
                 position: { yaw: '150deg', pitch: '-10deg' },
                 html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往紐約廳</div>',
                 anchor: 'bottom center',
-                size: { width: 100, height: 30 },
+                size: { width: 130, height: 35 },
                 tooltip: '點擊前往 紐約廳',
                 data: { targetRoom: 'hall-b' }
             }
@@ -96,7 +96,7 @@ const roomsData = {
                 position: { yaw: '30deg', pitch: '-5deg' },
                 html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往米蘭廳</div>',
                 anchor: 'bottom center',
-                size: { width: 100, height: 30 },
+                size: { width: 130, height: 35 },
                 tooltip: '點擊前往 米蘭廳',
                 data: { targetRoom: 'hall-c' }
             }
@@ -129,7 +129,7 @@ const roomsData = {
                 position: { yaw: '200deg', pitch: '-10deg' },
                 html: '<div class="custom-marker"><i class="fa-solid fa-door-open"></i> 前往東京廳</div>',
                 anchor: 'bottom center',
-                size: { width: 100, height: 30 },
+                size: { width: 130, height: 35 },
                 tooltip: '點擊前往 東京廳',
                 data: { targetRoom: 'hall-a' }
             },
@@ -138,7 +138,7 @@ const roomsData = {
                 position: { yaw: '90deg', pitch: '-5deg' },
                 html: '<div class="custom-marker"><i class="fa-solid fa-bed"></i> 前往紐約廳</div>',
                 anchor: 'bottom center',
-                size: { width: 100, height: 30 },
+                size: { width: 130, height: 35 },
                 tooltip: '點擊前往 紐約廳',
                 data: { targetRoom: 'hall-b' }
             }
