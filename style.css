@@ -819,6 +819,29 @@ body, html {
     color: white;
 }
 
+/* Mobile Toggle Buttons */
+.mobile-toggle-btn {
+    display: none;
+    position: absolute;
+    background: var(--panel-bg);
+    backdrop-filter: var(--panel-blur);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    z-index: 200;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.mobile-toggle-btn:active {
+    transform: scale(0.9);
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .top-info-bar {
@@ -852,17 +875,45 @@ body, html {
         padding: 4px 10px;
     }
 
-    .minimap-panel {
-        top: auto;
-        bottom: 220px;
+    .mobile-toggle-btn {
+        display: flex;
+    }
+    
+    .mobile-toggle-btn.left-toggle {
+        top: 75px;
+        left: 10px;
+    }
+    .mobile-toggle-btn.left-toggle.open {
+        background: var(--primary);
+    }
+    
+    .mobile-toggle-btn.right-toggle {
+        top: 75px;
         right: 10px;
-        transform: scale(0.55);
-        transform-origin: bottom right;
+    }
+    .mobile-toggle-btn.right-toggle.open {
+        background: var(--primary);
+    }
+
+    .minimap-panel {
+        top: 130px;
+        bottom: auto;
+        right: 10px;
+        transform: translateX(120%) scale(0.65);
+        transform-origin: top right;
         box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        opacity: 0;
+        pointer-events: none;
+    }
+    .minimap-panel.open {
+        transform: translateX(0) scale(0.65);
+        opacity: 1;
+        pointer-events: auto;
     }
     
     .left-scene-menu {
-        top: 75px;
+        top: 130px;
         left: 10px;
         width: auto;
         flex-direction: column;
@@ -870,8 +921,17 @@ body, html {
         overflow-y: auto;
         padding: 0;
         gap: 8px;
-        max-height: calc(100vh - 290px);
+        max-height: calc(100vh - 220px);
         align-items: flex-start;
+        transform: translateX(-120%);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        opacity: 0;
+        pointer-events: none;
+    }
+    .left-scene-menu.open {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
     }
     
     .left-scene-menu::-webkit-scrollbar {
@@ -880,23 +940,39 @@ body, html {
     
     .left-scene-btn {
         flex: none;
-        padding: 6px 12px;
-        font-size: 0.85rem;
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
 
     .action-menu {
         top: auto;
-        bottom: 100px;
+        bottom: 75px;
         right: 10px;
-        transform: scale(0.75);
+        transform: scale(0.85);
         transform-origin: bottom right;
     }
     
     .contact-card {
-        bottom: 80px;
+        bottom: 75px;
         left: 10px;
-        transform: scale(0.7);
+        transform: scale(0.8);
         transform-origin: bottom left;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        padding: 0;
+    }
+    .contact-card .agent-avatar,
+    .contact-card .agent-name {
+        display: none;
+    }
+    .contact-card .agent-info {
+        margin: 0;
+    }
+    .contact-card .agent-actions {
+        flex-direction: column;
+        gap: 8px;
     }
     
     .bottom-nav {
