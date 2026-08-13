@@ -6,8 +6,8 @@ const roomsData = {
     'hall-a': {
         title: '時尚宴會廳)',
         roomName: '東京廳', 
-        thumb: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-        image: 'https://static.wixstatic.com/media/e869f9_5dab1da3280749f3bf5e70571004a94d~mv2.jpg', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f2f3b4c5ecb54b4d89de9e40737a2f31~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_6a65ef270d11499891841556d7101806~mv2.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
@@ -50,8 +50,8 @@ const roomsData = {
     'hall-b': {
         title: '時尚宴會廳',
         roomName: '紐約廳', 
-        thumb: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-        image: 'https://static.wixstatic.com/media/e869f9_001e98a2ba0e4fe6875c2cdf9fc0e2a2~mv2.jpg', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_79467f7f2446483b89c2c2036e8d81b9~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_0b1f24c3478244379514fa83d19a26c6~mv2.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg', 
@@ -105,8 +105,8 @@ const roomsData = {
     'hall-c': {
         title: '時尚宴會廳',
         roomName: '米蘭廳', 
-        thumb: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-        image: 'https://static.wixstatic.com/media/e869f9_c7ad28ba8c644fb99923ca7c392e6922~mv2.jpg', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_dab47680ae274e4f94edc8b9d033f895~mv2.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
