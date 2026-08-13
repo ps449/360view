@@ -13,25 +13,20 @@ const roomsData = {
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
         measurements: [
             {
-                id: 'measure-line-1',
-                polyline: [ [1.2, 0.4], [2.5, 0.6] ],
-                svgStyle: { stroke: 'white', strokeWidth: '2px' }
+                id: 'measure-height-line-a',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
             },
             {
-                id: 'measure-text-1',
-                position: { yaw: 1.85, pitch: 0.5 },
-                html: '<div class="measurement-marker">約 2.5 m</div>',
-                anchor: 'center center'
+                id: 'measure-height-text-a',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
             },
             {
-                id: 'measure-line-2',
-                polyline: [ [2.5, 0.6], [3.5, 0.2] ],
-                svgStyle: { stroke: 'white', strokeWidth: '2px' }
-            },
-            {
-                id: 'measure-text-2',
-                position: { yaw: 3.0, pitch: 0.4 },
-                html: '<div class="measurement-marker">約 3.0 m</div>',
+                id: 'measure-table-text-a',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
                 anchor: 'center center'
             }
         ],
@@ -57,36 +52,20 @@ const roomsData = {
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg', 
         measurements: [
             {
-                id: 'measure-line-1',
-                polyline: [ [1.2, 0.4], [2.5, 0.6] ],
-                svgStyle: { stroke: 'white', strokeWidth: '2px' }
+                id: 'measure-height-line-b',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
             },
             {
-                id: 'measure-text-1',
-                position: { yaw: 1.85, pitch: 0.5 },
-                html: '<div class="measurement-marker">約 2.5 m</div>',
-                anchor: 'center center'
+                id: 'measure-height-text-b',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
             },
             {
-                id: 'measure-line-2',
-                polyline: [ [2.5, 0.6], [3.5, 0.2] ],
-                svgStyle: { stroke: 'white', strokeWidth: '2px' }
-            },
-            {
-                id: 'measure-text-2',
-                position: { yaw: 3.0, pitch: 0.4 },
-                html: '<div class="measurement-marker">約 3.0 m</div>',
-                anchor: 'center center'
-            },
-             {
-                id: 'measure-line-3',
-                polyline: [ [1.2, 0.4], [1.2, -0.4] ],
-                svgStyle: { stroke: 'white', strokeWidth: '2px' }
-            },
-            {
-                id: 'measure-text-3',
-                position: { yaw: 1.2, pitch: 0.0 },
-                html: '<div class="measurement-marker">約 2.6 m</div>',
+                id: 'measure-table-text-b',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
                 anchor: 'center center'
             }
         ],
@@ -112,14 +91,20 @@ const roomsData = {
         styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
         measurements: [
             {
-                id: 'measure-line-1',
-                polyline: [ [1.2, 0.4], [2.5, 0.6] ],
-                svgStyle: { stroke: 'white', strokeWidth: '2px' }
+                id: 'measure-height-line-c',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
             },
             {
-                id: 'measure-text-1',
-                position: { yaw: 1.85, pitch: 0.5 },
-                html: '<div class="measurement-marker">約 2.5 m</div>',
+                id: 'measure-height-text-c',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-c',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
                 anchor: 'center center'
             }
         ],
