@@ -839,7 +839,7 @@ async function initViewer() {
             container: document.querySelector('#viewer'),
             panorama: room.image,
             loadingImg: '', 
-            touchmoveTwoFingers: true, 
+            touchmoveTwoFingers: false, 
             mousewheelCtrlKey: true,   
             defaultYaw: room.defaultYaw || 0,
             defaultPitch: room.defaultPitch || 0,
