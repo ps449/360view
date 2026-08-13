@@ -15,11 +15,11 @@ const roomsData = {
     'hall-a': {
         title: '時尚宴會廳',
         roomName: '東京廳', 
-        thumb: './assets/images/thumb-tokyo.jpg',
-        image: './assets/images/pano-tokyo.jpg', 
+        thumb: './assets/images/fashion/tokyo/thumb.jpg',
+        image: './assets/images/fashion/tokyo/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-a',
@@ -54,11 +54,11 @@ const roomsData = {
     'hall-b': {
         title: '時尚宴會廳',
         roomName: '紐約廳', 
-        thumb: './assets/images/thumb-newyork.jpg',
-        image: './assets/images/pano-newyork.jpg', 
+        thumb: './assets/images/fashion/newyork/thumb.jpg',
+        image: './assets/images/fashion/newyork/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere.jpg', 
+        styleImage: './assets/images/ui/sphere.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-b',
@@ -93,11 +93,11 @@ const roomsData = {
     'hall-c': {
         title: '時尚宴會廳',
         roomName: '米蘭廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/fashion/milan/thumb.jpg',
+        image: './assets/images/fashion/milan/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-c',
@@ -141,11 +141,11 @@ const roomsData = {
     'hall-shanghai': {
         title: '時尚宴會廳',
         roomName: '上海廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/fashion/shanghai/thumb.jpg',
+        image: './assets/images/fashion/shanghai/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -170,11 +170,11 @@ const roomsData = {
     'hall-paris': {
         title: '時尚宴會廳',
         roomName: '巴黎廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/fashion/paris/thumb.jpg',
+        image: './assets/images/fashion/paris/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -199,11 +199,11 @@ const roomsData = {
     'hall-london': {
         title: '時尚宴會廳',
         roomName: '倫敦廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/fashion/london/thumb.jpg',
+        image: './assets/images/fashion/london/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -228,11 +228,11 @@ const roomsData = {
     'hall-fashion-all': {
         title: '時尚宴會廳',
         roomName: '時尚廳全開', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/fashion/all/thumb.jpg',
+        image: './assets/images/fashion/all/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -257,11 +257,11 @@ const roomsData = {
     'empire-a': {
         title: '帝國宴會廳',
         roomName: '帝國A廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/empire/a/thumb.jpg',
+        image: './assets/images/empire/a/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -286,11 +286,11 @@ const roomsData = {
     'empire-b': {
         title: '帝國宴會廳',
         roomName: '帝國B廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/empire/b/thumb.jpg',
+        image: './assets/images/empire/b/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -315,11 +315,11 @@ const roomsData = {
     'empire-c': {
         title: '帝國宴會廳',
         roomName: '帝國C廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/empire/c/thumb.jpg',
+        image: './assets/images/empire/c/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -344,11 +344,11 @@ const roomsData = {
     'empire-d': {
         title: '帝國宴會廳',
         roomName: '帝國D廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/empire/d/thumb.jpg',
+        image: './assets/images/empire/d/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -373,11 +373,11 @@ const roomsData = {
     'empire-all': {
         title: '帝國宴會廳',
         roomName: '帝國廳全開', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/empire/all/thumb.jpg',
+        image: './assets/images/empire/all/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -402,11 +402,11 @@ const roomsData = {
     'vip-dragon': {
         title: 'VIP包廂',
         roomName: '龍廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/vip/dragon/thumb.jpg',
+        image: './assets/images/vip/dragon/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -431,11 +431,11 @@ const roomsData = {
     'vip-teng': {
         title: 'VIP包廂',
         roomName: '騰廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/vip/teng/thumb.jpg',
+        image: './assets/images/vip/teng/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -460,11 +460,11 @@ const roomsData = {
     'vip-fish': {
         title: 'VIP包廂',
         roomName: '魚廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/vip/fish/thumb.jpg',
+        image: './assets/images/vip/fish/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -489,11 +489,11 @@ const roomsData = {
     'vip-yue': {
         title: 'VIP包廂',
         roomName: '躍廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/vip/yue/thumb.jpg',
+        image: './assets/images/vip/yue/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -518,11 +518,11 @@ const roomsData = {
     'vip-gold': {
         title: 'VIP包廂',
         roomName: '金廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/vip/gold/thumb.jpg',
+        image: './assets/images/vip/gold/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -547,11 +547,11 @@ const roomsData = {
     'vip-bi': {
         title: 'VIP包廂',
         roomName: '壁廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/vip/bi/thumb.jpg',
+        image: './assets/images/vip/bi/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -576,11 +576,11 @@ const roomsData = {
     'vip-man': {
         title: 'VIP包廂',
         roomName: '滿廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/vip/man/thumb.jpg',
+        image: './assets/images/vip/man/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -605,11 +605,11 @@ const roomsData = {
     'vip-tang': {
         title: 'VIP包廂',
         roomName: '堂廳', 
-        thumb: './assets/images/thumb-milan.jpg',
-        image: './assets/images/pano-milan.jpg', 
+        thumb: './assets/images/vip/tang/thumb.jpg',
+        image: './assets/images/vip/tang/pano.jpg', 
         defaultYaw: 0,
         defaultPitch: 0,
-        styleImage: './assets/images/sphere-test.jpg', 
+        styleImage: './assets/images/ui/sphere-test.jpg', 
         measurements: [
             {
                 id: 'measure-height-line-fake',
@@ -817,7 +817,7 @@ function setupUIEvents(room) {
     btn2d.addEventListener('click', () => {
         btn2d.classList.add('active');
         btn3d.classList.remove('active');
-        minimapImg.src = './assets/images/gallery-placeholder.jpg';
+        minimapImg.src = './assets/images/ui/gallery-placeholder.jpg';
     });
 
     btn3d.addEventListener('click', () => {
@@ -835,7 +835,7 @@ function setupUIEvents(room) {
     const modalBtn2d = document.getElementById('modal-btn-2d');
     const modalBtn3d = document.getElementById('modal-btn-3d');
 
-    const image2d = './assets/images/gallery-placeholder.jpg';
+    const image2d = './assets/images/ui/gallery-placeholder.jpg';
     const image3d = 'https://static.wixstatic.com/media/e869f9_4bfe6978066643eba30a5cebd27fb601~mv2.png';
 
     btnExpandMap.addEventListener('click', (e) => {
