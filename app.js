@@ -283,13 +283,13 @@ function setupUIEvents(room) {
     btn2d.addEventListener('click', () => {
         btn2d.classList.add('active');
         btn3d.classList.remove('active');
-        minimapImg.src = 'wix:image://v1/e869f9_daf6a0b11cb14f73bb724403676f580f~mv2.jpg/IMG_3298.jpg#originWidth=4032&originHeight=3024?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&q=80';
+        minimapImg.src = 'https://static.wixstatic.com/media/e869f9_1b88019c80954b10ba74a8f257151b3d~mv2.jpg';
     });
 
     btn3d.addEventListener('click', () => {
         btn3d.classList.add('active');
         btn2d.classList.remove('active');
-        minimapImg.src = 'wix:image://v1/e869f9_feb80d57a2b344b999699b6c4bab9c98~mv2.jpg/IMG_3298.jpg#originWidth=4032&originHeight=3024?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&q=80';
+        minimapImg.src = 'https://static.wixstatic.com/media/e869f9_4bfe6978066643eba30a5cebd27fb601~mv2.png';
     });
 
     // 1.5 Map Enlarge Modal Logic (Refactored)
@@ -301,8 +301,8 @@ function setupUIEvents(room) {
     const modalBtn2d = document.getElementById('modal-btn-2d');
     const modalBtn3d = document.getElementById('modal-btn-3d');
 
-    const image2d = 'https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; // Higher res for large view
-    const image3d = 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; // Higher res for large view
+    const image2d = 'https://static.wixstatic.com/media/e869f9_1b88019c80954b10ba74a8f257151b3d~mv2.jpg';
+    const image3d = 'https://static.wixstatic.com/media/e869f9_4bfe6978066643eba30a5cebd27fb601~mv2.png';
 
     btnExpandMap.addEventListener('click', (e) => {
         e.preventDefault();
