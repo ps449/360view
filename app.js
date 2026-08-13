@@ -1138,7 +1138,7 @@ function setupUIEvents(room) {
             sharePopup.classList.remove('active');
         }
     });
-
+}
 
 function switchRoom(newRoomId, isAuto = false) {
     if (newRoomId === currentRoomId || !viewer) return;
