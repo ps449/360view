@@ -821,70 +821,90 @@ body, html {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    .top-info-bar {
+        padding-top: 10px;
+    }
+
     .top-info-content {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 8px 15px;
-        gap: 5px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 6px 15px;
+        gap: 8px;
+        width: 92vw;
+        border-radius: 20px;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .top-info-content::-webkit-scrollbar {
+        display: none;
     }
 
     .category-btn {
+        flex: 0 0 auto;
         font-size: 0.85rem;
-        padding: 4px 8px;
+        padding: 4px 10px;
     }
 
     .btn-basic-info {
-        font-size: 0.75rem;
-        padding: 4px 8px;
+        flex: 0 0 auto;
+        font-size: 0.8rem;
+        padding: 4px 10px;
     }
 
     .minimap-panel {
         top: auto;
-        bottom: 250px;
+        bottom: 220px;
         right: 10px;
-        transform: scale(0.65);
+        transform: scale(0.55);
         transform-origin: bottom right;
         box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
     
     .left-scene-menu {
-        top: 100px;
+        top: 75px;
         left: 10px;
         width: auto;
         flex-direction: column;
         overflow-x: hidden;
         overflow-y: auto;
         padding: 0;
-        gap: 10px;
-        max-height: calc(100vh - 280px);
+        gap: 8px;
+        max-height: calc(100vh - 290px);
         align-items: flex-start;
+    }
+    
+    .left-scene-menu::-webkit-scrollbar {
+        display: none;
     }
     
     .left-scene-btn {
         flex: none;
         padding: 6px 12px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .action-menu {
         top: auto;
-        bottom: 120px;
+        bottom: 100px;
         right: 10px;
-        transform: scale(0.8);
+        transform: scale(0.75);
         transform-origin: bottom right;
     }
     
     .contact-card {
-        bottom: 90px;
+        bottom: 80px;
         left: 10px;
-        transform: scale(0.8);
+        transform: scale(0.7);
         transform-origin: bottom left;
     }
     
     .bottom-nav {
-        bottom: 20px;
+        bottom: 15px;
         width: 100%;
         justify-content: center;
+        transform: scale(0.9);
+        transform-origin: bottom center;
     }
     
     .feature-highlight {
