@@ -233,10 +233,14 @@ function setupUIEvents(room) {
     const galleryPopup = document.getElementById('gallery-popup');
     const galleryScrollContainer = document.getElementById('gallery-scroll-container');
 
-    // Populate gallery
+    // Populate gallery and left scene menu
     galleryScrollContainer.innerHTML = '';
+    const leftSceneMenu = document.getElementById('left-scene-menu');
+    leftSceneMenu.innerHTML = '';
+    
     Object.keys(roomsData).forEach(key => {
         const r = roomsData[key];
+        // Gallery Item
         const item = document.createElement('div');
         item.className = 'gallery-item' + (key === currentRoomId ? ' active' : '');
         item.innerHTML = `
@@ -247,6 +251,15 @@ function setupUIEvents(room) {
             switchRoom(key);
         });
         galleryScrollContainer.appendChild(item);
+
+        // Left Scene Menu Item
+        const leftItem = document.createElement('button');
+        leftItem.className = 'left-scene-btn' + (key === currentRoomId ? ' active' : '');
+        leftItem.innerHTML = `<i class="fa-solid fa-location-dot"></i> ${r.roomName}`;
+        leftItem.addEventListener('click', () => {
+            switchRoom(key);
+        });
+        leftSceneMenu.appendChild(leftItem);
     });
 
     btnRoomSwitch.addEventListener('click', (e) => {
@@ -506,6 +519,14 @@ function switchRoom(newRoomId, isAuto = false) {
     document.querySelectorAll('.gallery-item').forEach(item => {
         item.classList.remove('active');
         if (item.querySelector('.gallery-item-label').textContent === room.roomName) {
+            item.classList.add('active');
+        }
+    });
+
+    // Update active state in left scene menu
+    document.querySelectorAll('.left-scene-btn').forEach(item => {
+        item.classList.remove('active');
+        if (item.textContent.includes(room.roomName)) {
             item.classList.add('active');
         }
     });
