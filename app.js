@@ -4,7 +4,7 @@ import { MarkersPlugin } from '@photo-sphere-viewer/markers-plugin';
 
 const roomsData = {
     'hall-a': {
-        title: '時尚宴會廳)',
+        title: '時尚宴會廳',
         roomName: '東京廳', 
         thumb: 'https://static.wixstatic.com/media/e869f9_f2f3b4c5ecb54b4d89de9e40737a2f31~mv2.jpg',
         image: 'https://static.wixstatic.com/media/e869f9_0c351a92b8dc40cf9885a579438525f4~mv2.jpg', 
