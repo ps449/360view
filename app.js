@@ -41,7 +41,7 @@ const roomsData = {
         ],
         walkMarkers: [
             {
-                id: 'walk-a-to-b',
+                id: 'walk-hall-a-to-hall-b',
                 position: { yaw: '150deg', pitch: '-10deg' },
                 html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往紐約廳</div>',
                 anchor: 'bottom center',
@@ -80,8 +80,8 @@ const roomsData = {
         ],
         walkMarkers: [
             {
-                id: 'walk-b-to-c',
-                position: { yaw: '30deg', pitch: '-5deg' },
+                id: 'walk-hall-b-to-hall-c',
+                position: { yaw: '150deg', pitch: '-10deg' },
                 html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往米蘭廳</div>',
                 anchor: 'bottom center',
                 size: { width: 130, height: 35 },
@@ -119,22 +119,13 @@ const roomsData = {
         ],
         walkMarkers: [
             {
-                id: 'walk-to-entrance',
-                position: { yaw: '200deg', pitch: '-10deg' },
-                html: '<div class="custom-marker"><i class="fa-solid fa-door-open"></i> 前往東京廳</div>',
+                id: 'walk-hall-c-to-hall-shanghai',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往上海廳</div>',
                 anchor: 'bottom center',
                 size: { width: 130, height: 35 },
-                tooltip: '點擊前往 東京廳',
-                data: { targetRoom: 'hall-a' }
-            },
-            {
-                id: 'walk-to-bedroom',
-                position: { yaw: '90deg', pitch: '-5deg' },
-                html: '<div class="custom-marker"><i class="fa-solid fa-bed"></i> 前往紐約廳</div>',
-                anchor: 'bottom center',
-                size: { width: 130, height: 35 },
-                tooltip: '點擊前往 紐約廳',
-                data: { targetRoom: 'hall-b' }
+                tooltip: '點擊前往 上海廳',
+                data: { targetRoom: 'hall-shanghai' }
             }
         ]
     },
@@ -165,7 +156,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-hall-shanghai-to-hall-paris',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往巴黎廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 巴黎廳',
+                data: { targetRoom: 'hall-paris' }
+            }
+        ]
     },
     'hall-paris': {
         title: '時尚宴會廳',
@@ -194,7 +195,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-hall-paris-to-hall-london',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往倫敦廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 倫敦廳',
+                data: { targetRoom: 'hall-london' }
+            }
+        ]
     },
     'hall-london': {
         title: '時尚宴會廳',
@@ -223,7 +234,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-hall-london-to-hall-fashion-all',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往時尚廳全開</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 時尚廳全開',
+                data: { targetRoom: 'hall-fashion-all' }
+            }
+        ]
     },
     'hall-fashion-all': {
         title: '時尚宴會廳',
@@ -281,7 +302,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-empire-a-to-empire-b',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往帝國B廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 帝國B廳',
+                data: { targetRoom: 'empire-b' }
+            }
+        ]
     },
     'empire-b': {
         title: '帝國宴會廳',
@@ -310,7 +341,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-empire-b-to-empire-c',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往帝國C廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 帝國C廳',
+                data: { targetRoom: 'empire-c' }
+            }
+        ]
     },
     'empire-c': {
         title: '帝國宴會廳',
@@ -339,7 +380,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-empire-c-to-empire-d',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往帝國D廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 帝國D廳',
+                data: { targetRoom: 'empire-d' }
+            }
+        ]
     },
     'empire-d': {
         title: '帝國宴會廳',
@@ -368,7 +419,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-empire-d-to-empire-all',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往帝國廳全開</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 帝國廳全開',
+                data: { targetRoom: 'empire-all' }
+            }
+        ]
     },
     'empire-all': {
         title: '帝國宴會廳',
@@ -426,7 +487,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-vip-dragon-to-vip-teng',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往騰廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 騰廳',
+                data: { targetRoom: 'vip-teng' }
+            }
+        ]
     },
     'vip-teng': {
         title: 'VIP包廂',
@@ -455,7 +526,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-vip-teng-to-vip-fish',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往魚廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 魚廳',
+                data: { targetRoom: 'vip-fish' }
+            }
+        ]
     },
     'vip-fish': {
         title: 'VIP包廂',
@@ -484,7 +565,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-vip-fish-to-vip-yue',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往躍廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 躍廳',
+                data: { targetRoom: 'vip-yue' }
+            }
+        ]
     },
     'vip-yue': {
         title: 'VIP包廂',
@@ -513,7 +604,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-vip-yue-to-vip-gold',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往金廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 金廳',
+                data: { targetRoom: 'vip-gold' }
+            }
+        ]
     },
     'vip-gold': {
         title: 'VIP包廂',
@@ -542,7 +643,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-vip-gold-to-vip-bi',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往壁廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 壁廳',
+                data: { targetRoom: 'vip-bi' }
+            }
+        ]
     },
     'vip-bi': {
         title: 'VIP包廂',
@@ -571,7 +682,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-vip-bi-to-vip-man',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往滿廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 滿廳',
+                data: { targetRoom: 'vip-man' }
+            }
+        ]
     },
     'vip-man': {
         title: 'VIP包廂',
@@ -600,7 +721,17 @@ const roomsData = {
                 anchor: 'center center'
             }
         ],
-        walkMarkers: []
+        walkMarkers: [
+            {
+                id: 'walk-vip-man-to-vip-tang',
+                position: { yaw: '150deg', pitch: '-10deg' },
+                html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往堂廳</div>',
+                anchor: 'bottom center',
+                size: { width: 130, height: 35 },
+                tooltip: '點擊前往 堂廳',
+                data: { targetRoom: 'vip-tang' }
+            }
+        ]
     },
     'vip-tang': {
         title: 'VIP包廂',
