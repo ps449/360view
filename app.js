@@ -37,7 +37,7 @@ const roomsData = {
         ],
         walkMarkers: [
             {
-                id: 'walk-to-living',
+                id: 'walk-a-to-b',
                 position: { yaw: '150deg', pitch: '-10deg' },
                 html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往紐約廳</div>',
                 anchor: 'bottom center',
@@ -92,7 +92,7 @@ const roomsData = {
         ],
         walkMarkers: [
             {
-                id: 'walk-to-living',
+                id: 'walk-b-to-c',
                 position: { yaw: '30deg', pitch: '-5deg' },
                 html: '<div class="custom-marker"><i class="fa-solid fa-person-walking"></i> 前往米蘭廳</div>',
                 anchor: 'bottom center',
@@ -190,8 +190,9 @@ async function initViewer() {
         markersPlugin = viewer.getPlugin(MarkersPlugin);
         
         // Listen for marker clicks for walking
-        markersPlugin.addEventListener('select-marker', (e, marker) => {
-            if (marker.data && marker.data.targetRoom) {
+        markersPlugin.addEventListener('select-marker', (e) => {
+            const marker = e.marker || (e.args && e.args[0]) || e;
+            if (marker && marker.data && marker.data.targetRoom) {
                 switchRoom(marker.data.targetRoom);
             }
         });
