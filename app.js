@@ -683,13 +683,13 @@ async function initViewer() {
         if (categoriesData[cat]) {
             basicInfoLink.href = categoriesData[cat].link;
             
+            // Always re-render the lists for the new category
+            renderRoomLists();
+            
             // Switch to the first room of this category
             const firstRoomKey = categoriesData[cat].rooms[0];
             if (firstRoomKey && firstRoomKey !== currentRoomId) {
                 switchRoom(firstRoomKey);
-            } else {
-                // Just re-render if we are already there
-                renderRoomLists();
             }
         }
     }
