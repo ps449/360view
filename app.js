@@ -722,6 +722,14 @@ async function initViewer() {
                     markers: room.walkMarkers || []
                 }]
             ],
+            lang: {
+                zoom: '縮放',
+                zoomOut: '縮小',
+                zoomIn: '放大',
+                ctrlZoom: '請使用 Ctrl + 滾輪縮放圖片',
+                twoFingers: '請使用雙指縮放與移動',
+                loadError: '圖片載入失敗',
+            },
             navbar: false, 
         });
 
