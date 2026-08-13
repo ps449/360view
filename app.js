@@ -393,7 +393,7 @@ function setupUIEvents(room) {
                                 if (newAutorotate) newAutorotate.start();
                             }
                         }, 1000);
-                    }, 10000); // Switch every 10 seconds
+                    }, 15000); // Switch every 15 seconds
                 }
             } else if (actionText.includes('量尺')) {
                 // Toggle active class
