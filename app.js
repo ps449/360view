@@ -2,7 +2,16 @@ import { Viewer } from '@photo-sphere-viewer/core';
 import { AutorotatePlugin } from '@photo-sphere-viewer/autorotate-plugin';
 import { MarkersPlugin } from '@photo-sphere-viewer/markers-plugin';
 
+
+const categoriesData = {
+    'fashion': { title: '時尚宴會廳', link: 'https://www.ckcchao.com/fashion', rooms: ['hall-a', 'hall-b', 'hall-c', 'hall-shanghai', 'hall-paris', 'hall-london', 'hall-fashion-all'] },
+    'empire': { title: '帝國宴會廳', link: 'https://www.ckcchao.com/empire', rooms: ['empire-a', 'empire-b', 'empire-c', 'empire-d', 'empire-all'] },
+    'vip': { title: 'VIP包廂', link: 'https://www.ckcchao.com/vip', rooms: ['vip-dragon', 'vip-teng', 'vip-fish', 'vip-yue', 'vip-gold', 'vip-bi', 'vip-man', 'vip-tang'] }
+};
+
+let currentCategory = 'fashion';
 const roomsData = {
+
     'hall-a': {
         title: '時尚宴會廳',
         roomName: '東京廳', 
@@ -128,6 +137,499 @@ const roomsData = {
                 data: { targetRoom: 'hall-b' }
             }
         ]
+    },
+    'hall-shanghai': {
+        title: '時尚宴會廳',
+        roomName: '上海廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'hall-paris': {
+        title: '時尚宴會廳',
+        roomName: '巴黎廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'hall-london': {
+        title: '時尚宴會廳',
+        roomName: '倫敦廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'hall-fashion-all': {
+        title: '時尚宴會廳',
+        roomName: '時尚廳全開', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'empire-a': {
+        title: '帝國宴會廳',
+        roomName: '帝國A廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'empire-b': {
+        title: '帝國宴會廳',
+        roomName: '帝國B廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'empire-c': {
+        title: '帝國宴會廳',
+        roomName: '帝國C廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'empire-d': {
+        title: '帝國宴會廳',
+        roomName: '帝國D廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'empire-all': {
+        title: '帝國宴會廳',
+        roomName: '帝國廳全開', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'vip-dragon': {
+        title: 'VIP包廂',
+        roomName: '龍廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'vip-teng': {
+        title: 'VIP包廂',
+        roomName: '騰廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'vip-fish': {
+        title: 'VIP包廂',
+        roomName: '魚廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'vip-yue': {
+        title: 'VIP包廂',
+        roomName: '躍廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'vip-gold': {
+        title: 'VIP包廂',
+        roomName: '金廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'vip-bi': {
+        title: 'VIP包廂',
+        roomName: '壁廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'vip-man': {
+        title: 'VIP包廂',
+        roomName: '滿廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
+    },
+    'vip-tang': {
+        title: 'VIP包廂',
+        roomName: '堂廳', 
+        thumb: 'https://static.wixstatic.com/media/e869f9_f43be1f9236c4dbbb6a17941313c5937~mv2.jpg',
+        image: 'https://static.wixstatic.com/media/e869f9_fb70ae308cc74efb8effd089b37251e5~mv2.jpg', 
+        defaultYaw: 0,
+        defaultPitch: 0,
+        styleImage: 'https://photo-sphere-viewer-data.netlify.app/assets/sphere-test.jpg', 
+        measurements: [
+            {
+                id: 'measure-height-line-fake',
+                polyline: [ [1.0, -0.2], [1.0, 0.5] ],
+                svgStyle: { stroke: 'white', strokeWidth: '2px', strokeDasharray: '4' }
+            },
+            {
+                id: 'measure-height-text-fake',
+                position: { yaw: 1.0, pitch: 0.15 },
+                html: '<div class="measurement-marker">樓高 3 M</div>',
+                anchor: 'center left'
+            },
+            {
+                id: 'measure-table-text-fake',
+                position: { yaw: 0, pitch: -0.2 },
+                html: '<div class="measurement-marker">桌子 180x60 CM<br>高 70 CM</div>',
+                anchor: 'center center'
+            }
+        ],
+        walkMarkers: []
     }
 };
 
@@ -137,18 +639,69 @@ let currentStyle = 'normal';
 let isRulerActive = false;
 let currentRoomId = 'hall-a';
 
+
 function getRoomIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('room') || 'hall-a'; 
+    const room = params.get('room') || 'hall-a';
+    
+    // Auto-detect category
+    for (const [cat, data] of Object.entries(categoriesData)) {
+        if (data.rooms.includes(room)) {
+            currentCategory = cat;
+            break;
+        }
+    }
+    return room;
 }
+
 
 async function initViewer() {
     currentRoomId = getRoomIdFromUrl();
     const room = roomsData[currentRoomId] || roomsData['hall-a'];
 
-    document.getElementById('header-title').textContent = room.title;
+    
     document.getElementById('current-room-name').textContent = room.roomName;
     document.querySelector('.minimap-title').textContent = room.roomName;
+
+    
+    // Category Tabs Logic
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const basicInfoLink = document.getElementById('basic-info-link');
+    
+    function switchCategory(cat) {
+        currentCategory = cat;
+        // Update tabs active state
+        categoryBtns.forEach(btn => {
+            if (btn.dataset.category === cat) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        
+        // Update basic info link
+        if (categoriesData[cat]) {
+            basicInfoLink.href = categoriesData[cat].link;
+            
+            // Switch to the first room of this category
+            const firstRoomKey = categoriesData[cat].rooms[0];
+            if (firstRoomKey && firstRoomKey !== currentRoomId) {
+                switchRoom(firstRoomKey);
+            } else {
+                // Just re-render if we are already there
+                renderRoomLists();
+            }
+        }
+    }
+    
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            switchCategory(btn.dataset.category);
+        });
+    });
+    
+    // Initial sync
+    switchCategory(currentCategory);
 
     try {
         viewer = new Viewer({
@@ -188,7 +741,7 @@ async function initViewer() {
             setTimeout(() => { loader.style.display = 'none'; }, 800);
             
             // Set initial UI texts correctly based on the data
-            document.getElementById('header-title').textContent = room.title;
+            
             document.getElementById('current-room-name').textContent = room.roomName;
             document.querySelector('.minimap-title').textContent = room.roomName;
         });
@@ -233,34 +786,8 @@ function setupUIEvents(room) {
     const galleryPopup = document.getElementById('gallery-popup');
     const galleryScrollContainer = document.getElementById('gallery-scroll-container');
 
-    // Populate gallery and left scene menu
-    galleryScrollContainer.innerHTML = '';
-    const leftSceneMenu = document.getElementById('left-scene-menu');
-    leftSceneMenu.innerHTML = '';
-    
-    Object.keys(roomsData).forEach(key => {
-        const r = roomsData[key];
-        // Gallery Item
-        const item = document.createElement('div');
-        item.className = 'gallery-item' + (key === currentRoomId ? ' active' : '');
-        item.innerHTML = `
-            <img src="${r.thumb}" alt="${r.roomName}">
-            <div class="gallery-item-label">${r.roomName}</div>
-        `;
-        item.addEventListener('click', () => {
-            switchRoom(key);
-        });
-        galleryScrollContainer.appendChild(item);
-
-        // Left Scene Menu Item
-        const leftItem = document.createElement('button');
-        leftItem.className = 'left-scene-btn' + (key === currentRoomId ? ' active' : '');
-        leftItem.innerHTML = `<i class="fa-solid fa-location-dot"></i> ${r.roomName}`;
-        leftItem.addEventListener('click', () => {
-            switchRoom(key);
-        });
-        leftSceneMenu.appendChild(leftItem);
-    });
+    // Render lists based on current category
+    renderRoomLists();
 
     btnRoomSwitch.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -511,7 +1038,7 @@ function switchRoom(newRoomId, isAuto = false) {
     document.getElementById('gallery-popup').classList.remove('active');
 
     // Update UI Texts
-    document.getElementById('header-title').textContent = room.title;
+    
     document.getElementById('current-room-name').textContent = room.roomName;
     document.querySelector('.minimap-title').textContent = room.roomName;
 
@@ -555,3 +1082,37 @@ function switchRoom(newRoomId, isAuto = false) {
 }
 
 document.addEventListener('DOMContentLoaded', initViewer);
+
+function renderRoomLists() {
+    const galleryScrollContainer = document.getElementById('gallery-scroll-container');
+    const leftSceneMenu = document.getElementById('left-scene-menu');
+    
+    if (galleryScrollContainer) galleryScrollContainer.innerHTML = '';
+    if (leftSceneMenu) leftSceneMenu.innerHTML = '';
+    
+    const catData = categoriesData[currentCategory];
+    if (!catData) return;
+    
+    catData.rooms.forEach(key => {
+        const r = roomsData[key];
+        if (!r) return;
+        
+        // Gallery Item
+        if (galleryScrollContainer) {
+            const item = document.createElement('div');
+            item.className = 'gallery-item' + (key === currentRoomId ? ' active' : '');
+            item.innerHTML = `<img src="${r.thumb}" alt="${r.roomName}"><div class="gallery-item-label">${r.roomName}</div>`;
+            item.addEventListener('click', () => { switchRoom(key); });
+            galleryScrollContainer.appendChild(item);
+        }
+
+        // Left Scene Menu Item
+        if (leftSceneMenu) {
+            const leftItem = document.createElement('button');
+            leftItem.className = 'left-scene-btn' + (key === currentRoomId ? ' active' : '');
+            leftItem.innerHTML = `<i class="fa-solid fa-location-dot"></i> ${r.roomName}`;
+            leftItem.addEventListener('click', () => { switchRoom(key); });
+            leftSceneMenu.appendChild(leftItem);
+        }
+    });
+}

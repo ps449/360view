@@ -70,10 +70,33 @@ body, html {
     pointer-events: auto;
 }
 
-#header-title {
+.category-tabs {
+    display: flex;
+    gap: 5px;
+}
+
+.category-btn {
+    background: transparent;
+    border: none;
     color: var(--text-light);
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.category-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.category-btn.active {
+    background: var(--primary);
+    color: white;
     font-weight: 500;
-    font-size: 1.1rem;
+    box-shadow: 0 0 10px rgba(46, 125, 50, 0.4);
 }
 
 .btn-basic-info {
